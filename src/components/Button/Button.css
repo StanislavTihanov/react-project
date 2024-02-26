@@ -1,0 +1,16 @@
+.button {
+    cursor: pointer;
+    background-color: #d5ee48;
+    border-radius: 10px;
+    padding: 0.8rem 2rem;
+    color: #000;
+}
+.button:hover {
+    background-color: #64d4c4;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+.button.active {
+    background-color: #3e6ae2;
+    color: #fff;
+}
