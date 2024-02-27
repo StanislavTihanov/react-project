@@ -41,3 +41,17 @@ p {
 .button:not(:last-child) {
   margin-right: 20px;
 }
+.control {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+.form label {
+  margin-bottom: 0.3rem;
+  display: block;
+}
+.bg {
+  background-color: #000;
+}
