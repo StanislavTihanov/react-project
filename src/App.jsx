@@ -1,49 +1,28 @@
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
+import TeachingSection from "./components/TeachingSection";
+import ButtonSection from "./components/ButtonSection";
+import IntroSection from "./components/IntroSection";
+import TabsSection from "./components/TabsSection";
+import FeedbackSection from "./components/FeedbackSection";
 import { useState } from "react";
-import { ways, differences } from "./data";
-import WayToTeach from "./components/WayToTeach";
-import Button from "./components/Button/Button";
 
 export default function App() {
-  const [contentType, setContentType] = useState(null);
-
-  function handleClick (type) {
-    setContentType(type)
-  }
+  const [tab, setTab] = useState("feedback");
 
   return (
-    <div>
+    <>
       <Header />
       <main>
-        <section>
-          <h2>Hello React</h2>
-          <ul>
-            <WayToTeach {...ways[0]} />
-            <WayToTeach {...ways[1]} />
-            <WayToTeach {...ways[2]} />
-            <WayToTeach {...ways[3]} />
-          </ul>
-        </section>
-        <section>
-          <h3>Чем мы отличаемся от других</h3>
-          <Button 
-             isActive={contentType === 'way'}
-             onClick={() => handleClick('way')}>Подход
-          </Button>
-          <Button 
-             isActive={contentType === 'easy'}
-             onClick={() => handleClick('easy')}>Доступность
-          </Button>
-          <Button 
-             isActive={contentType === 'program'}
-             onClick={() => handleClick('program')}>Концентрация
-          </Button>
-
-          {!contentType && <p>Нажми на кнопку</p>}
-          {contentType && <p>{differences[contentType]}</p>}
-          
-        </section>
+        <IntroSection />
+        <TabsSection active={tab} onChange={(current) => setTab(current)} />
+        {tab === "main" && (
+          <>
+            <TeachingSection />
+            <ButtonSection />
+          </>
+        )}
+        {tab === 'feedback' && <FeedbackSection />}
       </main>
-    </div>
+    </>
   );
 }

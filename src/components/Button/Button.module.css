@@ -5,6 +5,9 @@
     padding: 0.8rem 2rem;
     color: #000;
 }
+.button:not(:last-child) {
+  margin-right: 10px;
+}
 .button:hover {
     background-color: #64d4c4;
     transition: 0.3s;
